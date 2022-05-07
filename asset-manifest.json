@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/CodeRecord/static/css/main.7c80f064.css",
-    "main.js": "/CodeRecord/static/js/main.f71b7450.js",
+    "main.js": "/CodeRecord/static/js/main.ae71965c.js",
     "static/js/787.09bfe895.chunk.js": "/CodeRecord/static/js/787.09bfe895.chunk.js",
     "index.html": "/CodeRecord/index.html",
     "main.7c80f064.css.map": "/CodeRecord/static/css/main.7c80f064.css.map",
-    "main.f71b7450.js.map": "/CodeRecord/static/js/main.f71b7450.js.map",
+    "main.ae71965c.js.map": "/CodeRecord/static/js/main.ae71965c.js.map",
     "787.09bfe895.chunk.js.map": "/CodeRecord/static/js/787.09bfe895.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7c80f064.css",
-    "static/js/main.f71b7450.js"
+    "static/js/main.ae71965c.js"
   ]
 }
