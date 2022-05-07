@@ -56,6 +56,11 @@ export default function Textarea() {
         name: "a.py",
         language: 'python',
         value: '#Code your Python programe here'
+    },
+    "a.txt":{
+        name: "a.txt",
+        language: 'text',
+        value: 'Enter your text here'
     }
   };
   const [fileName, setFileName] = useState("sample.c");
@@ -90,6 +95,7 @@ export default function Textarea() {
                   <option value="script.js">javascript</option>
                   <option value="index.json">json</option>
                   <option value="a.py">python</option>
+                  <option value="a.txt">text</option>
                   <option value="foo-bar.ts">typescript</option>
                 </Select>
               </div>
