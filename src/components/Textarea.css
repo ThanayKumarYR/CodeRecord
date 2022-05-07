@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#container{
+    background-color: rgb(0, 0, 0);
+    height: 100vh;
+}
+nav{
+    height: 10vh;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 300%;
+    font-weight: bolder;
+    justify-content: center;
+}
+
+#Monoco{
+    width: 70%;
+    margin: 0% auto;
+}
+#btn-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#select-div{
+    width: 16vw;
+    display: flex;
+    align-items: center;
+    margin: 5px 0px;
+    color: white;
+}
+
+#select-div label{
+    font-size: larger;
+    font-weight: bolder;
+    margin-right: 5px ;
+}
+
+#editor{
+    font-size: larger;
+    font-weight: bolder;
+}
