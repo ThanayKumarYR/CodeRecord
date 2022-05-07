@@ -47,3 +47,19 @@ nav{
     font-size: larger;
     font-weight: bolder;
 }
+
+@media (max-width : 800px) {
+    #Monoco{
+        width: 90%;
+        margin: 0% auto;
+    }
+}
+@media (max-width : 500px) {
+    #Monoco{
+        width: 100%;
+        margin: 0% auto;
+    }
+    nav{
+        font-size: 200%;
+    }
+}
