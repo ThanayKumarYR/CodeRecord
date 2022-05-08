@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/CodeRecord/static/css/main.20a721c1.css",
-    "main.js": "/CodeRecord/static/js/main.9faf2895.js",
+    "main.css": "/CodeRecord/static/css/main.20ae7296.css",
+    "main.js": "/CodeRecord/static/js/main.47be7ef2.js",
     "static/js/787.09bfe895.chunk.js": "/CodeRecord/static/js/787.09bfe895.chunk.js",
+    "static/media/record-img.png": "/CodeRecord/static/media/record-img.26f10c7cf093d65c8a63.png",
+    "static/media/Teach.jpg": "/CodeRecord/static/media/Teach.32bc0de66750201216a8.jpg",
     "index.html": "/CodeRecord/index.html",
-    "main.20a721c1.css.map": "/CodeRecord/static/css/main.20a721c1.css.map",
-    "main.9faf2895.js.map": "/CodeRecord/static/js/main.9faf2895.js.map",
+    "main.20ae7296.css.map": "/CodeRecord/static/css/main.20ae7296.css.map",
+    "main.47be7ef2.js.map": "/CodeRecord/static/js/main.47be7ef2.js.map",
     "787.09bfe895.chunk.js.map": "/CodeRecord/static/js/787.09bfe895.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.20a721c1.css",
-    "static/js/main.9faf2895.js"
+    "static/css/main.20ae7296.css",
+    "static/js/main.47be7ef2.js"
   ]
 }
