@@ -4,6 +4,7 @@ import "./Textarea.css";
 import ErrorBoundary from "./ErrorBoundary";
 import { Select } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
+import { Link,Outlet } from "react-router-dom";
 
 export default function Textarea() {
   function changeFunc() {
@@ -99,10 +100,13 @@ export default function Textarea() {
                   <option value="foo-bar.ts">typescript</option>
                 </Select>
               </div>
+              <Link to="/Record">
               <Button colorScheme="green" size="md">
                 Record
               </Button>
+              </Link>
             </div>
+              <Outlet/>
             <div id="editor">
               <Editor
               height="80vh"
