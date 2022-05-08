@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0; 
+    background: transparent; 
+}
+
+#contain{
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#can{
+    /* border: 1px solid red; */
+    height: 100vh;
+    width: 100%;
+    background: black;
+    display: block;
+    align-items: center;
+}
+
+#can img{
+    width: 570px;
+    height: 400px;
+    position: absolute;
+    right: 0%;
+    top: -4%;
+}
+#box{
+    /* border: 1px solid yellow; */
+    display: block;
+    height: 616px;
+    width: 800px;
+    position: absolute;
+    margin: 0%;
+    background-color: rgb(37, 34, 34);
+    color: rgb(172, 169, 169);
+    z-index: 99;
+}
+
+#text{
+    outline: none;
+    padding: 2%;
+    resize: none;
+    font-size: larger;
+    font-family: 'Fira Code', monospace;
+    height: 100%;
+    border-radius: 2%;
+    width: 96%;
+    /* border: 1px solid red; */
+    background-color: rgb(37, 34, 34);
+    overflow: scroll;
+    color: #fff;
+    position: absolute;
+    top: 0%;
+    left: 4%;
+    white-space: pre;
+}
+
+#count-num{
+    display: inline-block;
+    /* border: 1px solid red; */
+    resize: none;
+    font-size: larger;
+    font-family: 'Fira Code', monospace;
+    width: 3%;
+    height: 100%;
+    position: relative;
+    left: 1%;
+    padding: 2% 0%; 
+    overflow: scroll;
+    background-color: rgb(214, 214, 214);
+    text-align: center;
+    background-color: transparent;
+}
+
+
+#vid{
+    border: 1px solid greenyellow;
+    width: 42%;
+    position: relative;
+    top: 0%;
+    left: 35%;
+    height: 52vh;
+    border-radius: 14px;
+    z-index: 0;
+}
+
+canvas{
+    margin: 1px auto;
+    display: block;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+#vd-div{
+    /* border: 1px solid red; */
+    width: 40%;
+    height: 35%;
+    position: absolute;
+    top: 58%;
+    right: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#vd{
+    width: 400px;
+    height: 180px;
+    margin: 5px auto;
+}
+
+#btnStart{
+    border: none;
+    outline: none;
+    display: inline-block;
+    margin: 0% auto;
+    padding: 0.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: larger;
+    font-weight: lighter;
+    border-radius: 5px;
+    background-color: red;
+    color: #fff;
+    position: relative;
+    left: 30%;
+    bottom: 2%;
+}
+
+#btnStart:hover{
+    cursor: pointer;
+    background-color: rgb(255, 72, 0);
+}
+#btnStart img{
+    /* border: 1px solid red; */
+    width: 20px;
+    height: 20px;
+    margin: 0px 5px;
+}

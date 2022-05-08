@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState , useRef } from "react";
 import Editor from "@monaco-editor/react";
 import "./Textarea.css";
 import ErrorBoundary from "./ErrorBoundary";
 import { Select } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
 import { Link,Outlet } from "react-router-dom";
+import { MContext } from "./MyProvider";
 
 export default function Textarea() {
   function changeFunc() {
@@ -67,8 +68,12 @@ export default function Textarea() {
   const [fileName, setFileName] = useState("sample.c");
   const file = files[fileName];
 
+  const editorRef = useRef(null);
+
   return (
     <>
+    <MContext.Consumer>
+    {(context) => (
       <ErrorBoundary>
         <div id="container">
           <nav>
@@ -101,7 +106,9 @@ export default function Textarea() {
                 </Select>
               </div>
               <Link to="/Record">
-              <Button colorScheme="green" size="md">
+              <Button colorScheme="green" size="md" onClick={()=>{
+                  context.setMessage(editorRef.current.getValue());
+              }}>
                 Record
               </Button>
               </Link>
@@ -114,11 +121,16 @@ export default function Textarea() {
               path={file.name}
               defaultLanguage={file.language}
               defaultValue={file.value}
+              onMount={(editor)=>{
+                editorRef.current = editor; 
+              }}
             />
             </div>
           </div>
         </div>
       </ErrorBoundary>
+    )}
+    </MContext.Consumer>
     </>
   );
 }
