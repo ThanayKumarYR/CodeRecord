@@ -3,22 +3,22 @@ import "./Record.css";
 import html2canvas from "html2canvas";
 import { MContext } from "./MyProvider";
 import logo1 from "../record-img.png";
-import logo from '../Teach.jpg';
+import logo from "../Teach.jpg";
+import { Link, Outlet } from "react-router-dom";
 
-export default function Record() {
+
+export default function Record(props) {
   const [number, Countnumber] = useState(`1`);
-
   const video = () => {
-
-    let b = document.getElementById('image').style;
-    b.zIndex = '-6';
+    let b = document.getElementById("image").style;
+    b.zIndex = "-6";
 
     let constraintObj = {
       audio: true,
       video: {
         facingMode: { exact: "user" },
         width: { min: 640, ideal: 1280, max: 1920 },
-        height: { min: 480, ideal: 720, max: 1080 }
+        height: { min: 480, ideal: 720, max: 1080 },
         // width: 400,
         // height: 100,
       },
@@ -69,23 +69,56 @@ export default function Record() {
           video.play();
         };
       });
+      
+    let divstop = document.getElementById("divStop");
+    divstop.style.zIndex = "10";
 
-      setInterval(()=>{
-        html2canvas(document.getElementById("can")).then(
-          (canvas) => {
-            document.body.appendChild(canvas);
-              var canvasElt = document.querySelector("canvas");
-              var stream1 = canvasElt.captureStream(25);
-              var vid = document.getElementById("vd");
-              vid.srcObject = stream1;
-              vid.onloadedmetadata = function (e) {
-                vid.play();
-              };
-            document.body.removeChild(canvas);
-          }
-        );
-      },250);
+    const starting = async (stream1) => {
+      const data = [];
+      const mediaRecorder = new MediaRecorder(stream1);
+      mediaRecorder.ondataavailable = (e) => {
+        data.push(e.data);
+      };
+      mediaRecorder.start();
+      let stop = document.getElementById("btnStop");
+      stop.addEventListener("click", (e) => {
+        clearInterval(Clearinterval);
+        mediaRecorder.stop();
+        setTimeout(() => {
+          const myBlob = new Blob(data, {
+            type: "video/mp4;",
+          });
+          const myFlie = new File([myBlob], "demo.mp4", {
+            type: "video/mp4",
+          });
+          document.getElementById(props.vid2).src = URL.createObjectURL(myFlie);
+        }, 3000);
+        const video = document.getElementById("vid");
+        const mediaStream = video.srcObject;
+        const tracks = mediaStream.getTracks();
+        tracks[0].stop();
+        tracks.forEach((track) => track.stop());
+      });
+    };
+
+    const Clearinterval =  
+    setInterval(() => {
+      html2canvas(document.getElementById("can")).then((canvas) => {
+        document.body.appendChild(canvas);
+        var canvasElt = document.querySelector("canvas");
+        var stream = canvasElt.captureStream(25);
+        var vid = document.getElementById("vd");
+        vid.srcObject = stream; 
+        const stream1 =  new MediaStream(stream);
+        starting(stream1);
+        vid.onloadedmetadata = function (e) {
+          vid.play();
+        };
+        document.body.removeChild(canvas);
+      });
+    }, 250);
   };
+
 
   return (
     <MContext.Consumer>
@@ -104,11 +137,11 @@ export default function Record() {
                     let lines = text.split("\n");
                     let count = lines.length;
                     let n = count;
-                      for (let i = 1; i <= n; i++) {
-                        a = a + `${i}\n`;
-                        Countnumber(`${a}`);
-                      }
-                    
+                    for (let i = 1; i <= n; i++) {
+                      a = a + `${i}\n`;
+                      Countnumber(`${a}`);
+                    }
+
                     var isSyncingLeftScroll = false;
                     var isSyncingRightScroll = false;
                     var leftDiv = document.getElementById("text");
@@ -130,21 +163,27 @@ export default function Record() {
                     };
                   }}
                 >
-                  {'//Click here once before start recording\n\n'+context.state.message}
+                  {"//Click here once before start recording\n\n" +
+                    context.state.message}
                 </div>
               </div>
-              <video id="vid">
-              </video>
-                <img id="image" src={logo} alt="Adjust yourself to camara!" />
+              <video id="vid"></video>
+              <img id="image" src={logo} alt="Adjust yourself to camara!" />
+            </div>
+            <div id="divStop">
+              <Link to="/Download">
+                <button id="btnStop">Next{"->"}</button>
+              </Link>
             </div>
             <button id="btnStart" onClick={video}>
               <img src={logo1} alt="" />
               <span>Start recording</span>
             </button>
           </div>
-          <div id='vd-div'>
-          <video id="vd" controls></video>
+          <div id="vd-div">
+            <video id="vd" controls></video>
           </div>
+          <Outlet />
         </>
       )}
     </MContext.Consumer>

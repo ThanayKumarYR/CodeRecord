@@ -7,14 +7,15 @@ import { Routes, Route } from "react-router-dom";
 import MyProvider from "./components/MyProvider";
 
 function App() {
+  const vid = "download-vid";
   return (
     <>
       <ChakraProvider>
         <MyProvider>
           <Routes>
             <Route exact path="/" element={<Textarea />}></Route>
-            <Route exact path="Record" element={<Record />}></Route>
-            <Route exact path="Download" element={<Download />}></Route>
+            <Route exact path="Record" element={<Record vid2={vid}/>}></Route>
+            <Route exact path="Download" element={<Download vid2={vid} />}></Route>
           </Routes>
         </MyProvider>
       </ChakraProvider>
