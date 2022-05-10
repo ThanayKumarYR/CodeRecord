@@ -117,7 +117,7 @@ export default function Textarea() {
             <div id="editor">
               <Editor
               height="80vh"
-              theme="vs-dark"
+              theme="hc-black"
               path={file.name}
               defaultLanguage={file.language}
               defaultValue={file.value}
